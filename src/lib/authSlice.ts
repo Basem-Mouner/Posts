@@ -2,8 +2,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 import toast from "react-hot-toast";
-export let login = createAsyncThunk(
-  "auth/login",
+export let login = createAsyncThunk("auth/login",
   async (values: { email: string; password: string }) => {
     return axios
       .post("https://linked-posts.routemisr.com/users/signin", values)
