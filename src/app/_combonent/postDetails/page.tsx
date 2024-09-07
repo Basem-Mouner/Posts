@@ -105,8 +105,8 @@ export default function PostsDetails({ postDetails ,iscomments=false }: { postDe
         <Image
           src={postDetails.image}
           alt={postDetails.body}
-          style={{ width: "100%", objectFit: "fill", maxHeight: "300px" }}
-          width={600}
+          style={{  objectFit: "fill", maxHeight: "300px" }}
+          width={500}
           height={300}
         />
       )}

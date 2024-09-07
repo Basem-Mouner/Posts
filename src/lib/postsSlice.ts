@@ -1,3 +1,4 @@
+'use client'
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import {Post} from './../interfaces'
 import axios from "axios";

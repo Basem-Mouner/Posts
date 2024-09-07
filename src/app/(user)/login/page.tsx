@@ -1,4 +1,5 @@
-"use client";
+"use client"
+
 import * as React from "react";
 import CssBaseline from "@mui/material/CssBaseline";
 import Box from "@mui/material/Box";
@@ -38,7 +39,7 @@ export default function Login() {
   });
 
   return (
-    <React.Fragment>
+    <>
       <CssBaseline />
       <Container maxWidth="lg">
         <Paper elevation={10}>
@@ -104,6 +105,6 @@ export default function Login() {
           </form>
         </Paper>
       </Container>
-    </React.Fragment>
+    </>
   );
 }
