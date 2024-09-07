@@ -17,7 +17,12 @@ import { Toaster } from "react-hot-toast";
 
 const inter = Inter({ subsets: ["latin"] });
 
-export default function RootLayout({ children }: {children:ReactNode}) {
+export default function RootLayout({ children }: { children: ReactNode }) {
+  
+  if (typeof window !== "undefined") {
+    // Your code that uses localStorage
+    localStorage.setItem("key", "value");
+  }
   return (
     <html lang="en">
       <body className={inter.className}>
