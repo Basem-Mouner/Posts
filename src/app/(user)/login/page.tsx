@@ -33,7 +33,8 @@ export default function Login() {
       console.log(values);
       await dispatch(login(values));
       if (localStorage.getItem("postUserToken")) {
-        push("/");
+        // push("/");
+        window.location.href = "/";
       }
     },
   });

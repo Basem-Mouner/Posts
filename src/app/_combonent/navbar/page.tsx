@@ -21,25 +21,36 @@ import { useDispatch, useSelector } from "react-redux";
 import { storeDispaatch, storeState } from "@/lib/store";
 import { clearToken } from "@/lib/authSlice";
 
+import { useEffect, useState } from "react";
+
+
 
 const pages = ["", "gallary", "content"];
 // const settings = ["login", "register", "Logout"];
 
 function Navbar() {
-   let { push } = useRouter();
-  let { token } = useSelector((state: storeState) => state.authSlice);
+ 
+  let { push } = useRouter();
+  // let token = true;
+
+  // let { token } = useSelector((state: storeState) => state.authSlice);
+
+  const [token, setToken]:any = useState('');
+  
+  
   let pathName: string = usePathname();
   let dispatch = useDispatch<storeDispaatch>();
 
   function navigate(path: string) {
-  push(path);
-}
+    push(path);
+  }
 
-   function Logout() {
+  function Logout() {
     localStorage.removeItem("postUserToken");
-     dispatch(clearToken());
-     console.log(token);
-    navigate('/login');
+    dispatch(clearToken());
+    setToken('')
+    console.log(token);
+    navigate("/login");
     // window.location.href = "/login";
   }
 
@@ -64,6 +75,14 @@ function Navbar() {
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
   };
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      // Code that uses localStorage
+     setToken(localStorage.getItem("postUserToken"));
+    }
+  }, []);
+  
 
   return (
     <AppBar position="fixed">

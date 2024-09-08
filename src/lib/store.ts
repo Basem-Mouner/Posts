@@ -1,6 +1,10 @@
 import  postsreducer  from '@/lib/postsSlice';
 import { configureStore } from "@reduxjs/toolkit";
+
 import authSlice from "./authSlice";
+
+
+
 
  export let store = configureStore({
    reducer: {

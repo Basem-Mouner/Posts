@@ -1,7 +1,10 @@
-'use client'
+'use client';
+
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
+
 import toast from "react-hot-toast";
+
 export let login = createAsyncThunk("auth/login",
   async (values: { email: string; password: string }) => {
     return axios
@@ -37,12 +40,19 @@ export let login = createAsyncThunk("auth/login",
   }
 );
 
+
+
+
+let initialState: { token: string|null, isLoading: boolean } = {
+  // token: localStorage.getItem("postUserToken"),
+  token:'',
+  isLoading: false
+  
+ }
+
 let authSlice = createSlice({
   name: "auth",
-  initialState: {
-    token: localStorage.getItem("postUserToken"),
-    isLoading: false,
-  },
+  initialState,
   reducers: {
     clearToken: (state) => {
       state.token = "";
