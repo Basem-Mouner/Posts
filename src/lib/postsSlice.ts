@@ -30,7 +30,7 @@ export let getPost = createAsyncThunk("posts/getPost", async (id:string) => {
 
 export let getPosts = createAsyncThunk("posts/getPosts",async()=>{
     return await axios
-      .get("https://linked-posts.routemisr.com/posts?limit=50&page=18", {
+      .get("https://linked-posts.routemisr.com/posts?limit=50&page=1", {
         headers: {
           token: localStorage.getItem("postUserToken"),
         },
